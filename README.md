@@ -1,4 +1,4 @@
-Log64
+#Log64
 
 Library is designed to be used when logging on the serial is desired during testing, but in the same time when in release the logging need to be omitted and free all teh memory that it had accupied.
 
