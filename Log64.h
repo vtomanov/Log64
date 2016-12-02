@@ -81,7 +81,7 @@ inline void LOG64_EEPROM_READ_IMPL();
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // IMPLEMENTATION
 
-#define EEPROM_LOG64_Size_Address 100
+#define EEPROM_LOG64_Size_Address 200
 #define EEPROM_LOG64_Start_Address ( EEPROM_LOG64_Size_Address + 2 )
 #define EEPROM_LOG64_MAX_MSG 512
 
