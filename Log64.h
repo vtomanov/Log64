@@ -112,41 +112,62 @@ inline void LOG64_INIT()
 inline void LOG64_SPACE_IMPL()
 {
   Serial.print(" ");
+#if defined(LOG64_LOGX)
+  LOG64_LOGX(" ");
+#endif 
 }
 
 inline void LOG64_SET_IMPL(int8_t i)
 {
   Serial.print(i);
+#if defined(LOG64_LOGX)
+  LOG64_LOGX(String(i).c_str());
+#endif
   LOG64_SPACE;
 }
 
 inline void LOG64_SET_IMPL(int16_t i)
 {
   Serial.print(i);
+#if defined(LOG64_LOGX)
+  LOG64_LOGX(String(i).c_str());
+#endif
   LOG64_SPACE;
 }
 
 inline void LOG64_SET_IMPL(int32_t i)
 {
   Serial.print(i);
+#if defined(LOG64_LOGX)
+  LOG64_LOGX(String(i).c_str());
+#endif
   LOG64_SPACE;
 }
 
 inline void LOG64_SET_IMPL(uint8_t i)
 {
   Serial.print(i);
+#if defined(LOG64_LOGX)
+  LOG64_LOGX(String(i).c_str());
+#endif
   LOG64_SPACE;
 }
 
 inline void LOG64_SET_IMPL(uint16_t i)
 {
   Serial.print(i);
+#if defined(LOG64_LOGX)
+  LOG64_LOGX(String(i).c_str());
+#endif
   LOG64_SPACE;
 }
 
 inline void LOG64_SET_IMPL(uint32_t i)
 {
   Serial.print(i);
+#if defined(LOG64_LOGX)
+  LOG64_LOGX(String(i).c_str());
+#endif
   LOG64_SPACE;
 }
 
@@ -154,6 +175,9 @@ inline void LOG64_SET_IMPL(uint32_t i)
 inline void LOG64_SET_IMPL(char c)
 {
   Serial.print(c);
+#if defined(LOG64_LOGX)
+  LOG64_LOGX(String(c).c_str());
+#endif
   LOG64_SPACE;
 }
 
@@ -161,24 +185,36 @@ inline void LOG64_SET_IMPL(char c)
 inline void LOG64_SET_IMPL(String s)
 {
   Serial.print(s);
+ #if defined(LOG64_LOGX)
+  LOG64_LOGX(s.c_str());
+#endif
   LOG64_SPACE;
 }
 
 inline void LOG64_SET_IMPL(float f)
 {
   Serial.print(f);
+#if defined(LOG64_LOGX)
+  LOG64_LOGX(String(f).c_str());
+#endif
   LOG64_SPACE;
 }
 
 inline void LOG64_SET_IMPL(double d)
 {
   Serial.print(d);
+#if defined(LOG64_LOGX)
+  LOG64_LOGX(String(d).c_str());
+#endif
   LOG64_SPACE;
 }
 
 inline void LOG64_NEW_LINE_IMPL()
 {
   Serial.println(" ");
+#if defined(LOG64_LOGX)
+  LOG64_LOGX("\r\n");
+#endif
 }
 
 inline void LOG64_SET_IMPL(uint64_t n)
@@ -188,6 +224,9 @@ inline void LOG64_SET_IMPL(uint64_t n)
   if (n == 0)
   {
     Serial.print((char)'0');
+#if defined(LOG64_LOGX)
+  LOG64_LOGX("0");
+#endif
     LOG64_SPACE;
     return;
   }
@@ -201,6 +240,9 @@ inline void LOG64_SET_IMPL(uint64_t n)
   for (uint16_t i = 0; i > 0; i--)
   {
     Serial.print((char) (buf[i - 1] < 10 ? ('0' + buf[i - 1]) : ('A' + buf[i - 1] - 10)));
+#if defined(LOG64_LOGX)
+  LOG64_LOGX(String((char) (buf[i - 1] < 10 ? ('0' + buf[i - 1]) : ('A' + buf[i - 1] - 10))).c_str());
+#endif
   }
 
   LOG64_SPACE;
@@ -213,6 +255,9 @@ inline void LOG64_SET_IMPL(int64_t n)
   if (n == 0)
   {
     Serial.print((char)'0');
+#if defined(LOG64_LOGX)
+  LOG64_LOGX("0");
+#endif
     LOG64_SPACE;
     return;
   }
@@ -220,6 +265,9 @@ inline void LOG64_SET_IMPL(int64_t n)
   if (n < 0)
   {
     Serial.print((char)'-');
+#if defined(LOG64_LOGX)
+  LOG64_LOGX("-");
+#endif
     n = n * (-1);
   }
 
@@ -232,6 +280,9 @@ inline void LOG64_SET_IMPL(int64_t n)
   for (uint16_t i = 0; i > 0; i--)
   {
     Serial.print((char) (buf[i - 1] < 10 ? ('0' + buf[i - 1]) : ('A' + buf[i - 1] - 10)));
+#if defined(LOG64_LOGX)
+  LOG64_LOGX(String((char) (buf[i - 1] < 10 ? ('0' + buf[i - 1]) : ('A' + buf[i - 1] - 10))).c_str());
+#endif
   }
 
   LOG64_SPACE;
