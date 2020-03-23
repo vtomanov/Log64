@@ -230,14 +230,16 @@ inline void LOG64_SET_IMPL(uint64_t n)
     LOG64_SPACE;
     return;
   }
-
-  for (uint16_t i = 0; n > 0; i++)
+	
+  uint16_t i = 0;
+	
+  for (; n > 0; i++)
   {
     buf[i] = n % 10;
     n /= 10;
   }
 
-  for (uint16_t i = 0; i > 0; i--)
+  for (; i > 0; i--)
   {
     Serial.print((char) (buf[i - 1] < 10 ? ('0' + buf[i - 1]) : ('A' + buf[i - 1] - 10)));
 #if defined(LOG64_LOGX)
@@ -271,13 +273,15 @@ inline void LOG64_SET_IMPL(int64_t n)
     n = n * (-1);
   }
 
-  for (uint16_t i = 0; n > 0; i++)
+  uint16_t i = 0;
+
+  for (; n > 0; i++)
   {
     buf[i] = n % 10;
     n /= 10;
   }
 
-  for (uint16_t i = 0; i > 0; i--)
+  for (; i > 0; i--)
   {
     Serial.print((char) (buf[i - 1] < 10 ? ('0' + buf[i - 1]) : ('A' + buf[i - 1] - 10)));
 #if defined(LOG64_LOGX)
